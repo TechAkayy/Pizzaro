@@ -1,6 +1,8 @@
-# pinegrow-vuetify-template
+# pizzaro
 
-This template should help get you started developing with Vue 3 in Vite.
+A simple online pizza store designed with Pinegrow.
+
+Vue 3 + Vite 2 + Vuetify 3 + Vue-Router + Pinia
 
 ## Recommended IDE Setup
 
