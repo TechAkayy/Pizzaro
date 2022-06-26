@@ -1,6 +1,6 @@
 # pizzaro
 
-A simple online pizza store designed with Pinegrow.
+A simple online pizza store designed with Pinegrow following tutorial - [Pinegrow docs > tutorial url]
 
 Vue 3 + Vite 2 + Vuetify 3 + Vue-Router + Pinia
 
