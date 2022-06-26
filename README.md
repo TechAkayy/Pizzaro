@@ -1,8 +1,8 @@
 # pizzaro
 
-A simple online pizza store designed with Pinegrow following tutorial - [Pinegrow docs > tutorial url]
+A simple online pizza store visually designed with Pinegrow Vue Designer. Tutorial - [pinegrow tutorial link]
 
-Vue 3 + Vite 2 + Vuetify 3 + Vue-Router + Pinia
+Vue 3 + Vite 2 + Vuetify 3 + Vue Router 4 + Pinia 2
 
 ## Recommended IDE Setup
 
@@ -22,6 +22,23 @@ npm install
 
 ```sh
 npm run dev
+```
+
+To use vue-devtools electron app during development,
+
+1. Add the following code to the top of main.js
+
+```javascript
+import devtools from '@vue/devtools'
+if (process.env.NODE_ENV === 'development') {
+	devtools.connect(/* host, port */)
+}
+```
+
+2. Run this command in a secondary terminal/console instance
+
+```sh
+npm run vue-devtools
 ```
 
 ### Compile and Minify for Production
