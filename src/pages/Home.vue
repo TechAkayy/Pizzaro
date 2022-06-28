@@ -1,16 +1,32 @@
-<style>.promo-grid {
+<script setup>
+	import { computed } from 'vue'
+	import { createPizzaStore } from '@/stores/pizzas'
+	import { storeToRefs } from 'pinia'
+
+	const pizzaStore = createPizzaStore()
+	const { pizzas, sizes } = storeToRefs(pizzaStore)
+	const specials = computed(() => pizzaStore.specials)
+
+	pizzaStore.getSizes()
+	pizzaStore.getPizzas()
+</script>
+<style>
+	.promo-grid {
 		display: grid;
 		grid-template-columns: 1fr;
-		grid-template-rows: 100px 200px 100px;
+		grid-template-rows: 100px auto 100px;
 		grid-template-areas: 'free-delivery' 'promos' 'free-fries';
 		grid-gap: 10px;
-	} @media (min-width:600px) {.promo-grid {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		grid-template-rows: 100px 100px;
-		grid-template-areas: 'promos free-delivery' 'promos free-fries';
-		grid-gap: 10px;
-	} }
+	}
+	@media (min-width: 600px) {
+		.promo-grid {
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			grid-template-rows: auto auto;
+			grid-template-areas: 'promos free-delivery' 'promos free-fries';
+			grid-gap: 10px;
+		}
+	}
 </style>
 <template>
 	<v-container data-pg-name="Header" class="align-center d-flex flex-column">
@@ -21,7 +37,7 @@
 			Yes we toss our pizza in mid air it collects all the dirt particles of
 			metropolitan pollution that creates a distict flavor of each pizza crust.
 		</p>
-		<v-container data-pg-name="Promos" class="promo-grid">
+		<v-container data-pg-name="Promos" class=" mt-2 mt-sm-4 promo-grid">
 			<v-container style="grid-area: promos" class="bg-white">
 				<v-row>
 					<v-col>
@@ -29,9 +45,8 @@
 					</v-col>
 				</v-row>
 				<v-row>
-					<v-col></v-col>
+					<v-col v-for="(special, index) in specials" :key="index" class="justify-center"><PromoCard :special="special"/></v-col>
 				</v-row>
-				Promos
 			</v-container>
 			<v-container style="grid-area: free-delivery" class="bg-white">Free Delivery</v-container>
 			<v-container style="grid-area: free-fries" class="bg-white">Free Fries</v-container>
