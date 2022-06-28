@@ -11,7 +11,7 @@
 <template>
 	<v-app style="background: #e8e7e7">
 		<!-- <v-app-bar extension-height="48" height="64" model-value></v-app-bar> -->
-		<v-app-bar flat color="transparent" height="64" location="top" tag="header"><div class="d-flex justify-center" style="width: 100%;">
+		<v-app-bar flat color="transparent" absolute><div class="d-flex justify-center" style="width: 100%;">
                 <v-tabs :model-value="currentRoute" hide-slider color="error">
                     <v-tab title="Track Order" class="d-none d-sm-flex hidden-only text-subtitle-2" prepend-icon="material-symbols-search-rounded" to="/track" value="track" selected-class="v-tab--selected"></v-tab>
                     <v-tab to="/track" value="track" class="d-sm-none text-h6" icon="material-symbols-search-rounded" selected-class="v-tab--selected"></v-tab>
