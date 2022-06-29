@@ -1,6 +1,7 @@
 // Styles
 // import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
+// https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
 // import '../styles/main.scss'
 
 // Vuetify
