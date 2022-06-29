@@ -46,23 +46,23 @@
 	}
 </style>
 <template>
-	<v-container
-		data-pg-name="Header"
-		class="align-center d-flex flex-column justify-center"
-	>
-		<p
-			class="font-weight-bold mt-1 mt-md-3 mt-sm-2 text-center text-h5 text-md-h3 text-sm-h4"
-			style="font-family: 'Playfair Display', serif !important"
-		>
-			Famous hand tossed pizza
-		</p>
-		<p
-			class="mt-2 text-caption text-center text-md-caption"
-			style="max-width: 600px"
-		>
-			Yes we toss our pizza in mid air it collects all the dirt particles of
-			metropolitan pollution that creates a distict flavor of each pizza crust.
-		</p>
+	<v-container data-pg-name="Header">
+		<div class="align-center d-flex flex-column justify-center">
+			<p
+				class="font-weight-bold mt-1 mt-md-3 mt-sm-2 text-center text-h5 text-md-h3 text-sm-h4"
+				style="font-family: 'Playfair Display', serif !important"
+			>
+				Famous hand tossed pizza
+			</p>
+			<p
+				class="mt-2 text-caption text-center text-md-caption"
+				style="max-width: 600px"
+			>
+				Yes we toss our pizza in mid air it collects all the dirt particles of
+				metropolitan pollution that creates a distict flavor of each pizza
+				crust.
+			</p>
+		</div>
 		<div class="mt-2 mt-sm-4 promo-grid">
 			<v-container style="grid-area: promos" class="bg-white">
 				<v-row class="">
