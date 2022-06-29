@@ -1,0 +1,41 @@
+<script setup class="">
+	import { storeToRefs } from 'pinia'
+	import { createPizzaStore } from '@/stores/pizzas'
+	const pizzaStore = createPizzaStore()
+	const { sizes } = storeToRefs(pizzaStore)
+
+	const props = defineProps({
+		pizza: {
+			type: Object,
+			required: true
+		}
+	})
+</script>
+
+<template>
+	<v-card class="pb-3 pt-3" elevation="0" border>
+		<v-img width="120px" class="ml-auto mr-auto" :src="pizza.img"></v-img><v-card-title class="justify-center text-subtitle-2">{{
+			pizza.name
+		}}</v-card-title><v-card-subtitle class="text-sm-caption">{{pizza.ingredients}}</v-card-subtitle><v-divider class="mb-2 ml-3 mr-3 mt-2"></v-divider><div class="d-flex justify-center ">
+    
+<table class="ml-3 mr-3">
+        <thead>
+            <tr>
+                <th class="pl-2 pr-2 text-caption text-center" v-for="(size, index) in sizes" :key="index">{{size.name}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="pl-2 pr-2 text-center text-subtitle-2" v-for="(size, index) in sizes" :key="index"><span :class="pizza.size_on_special && pizza.size_on_special === size.name ? 'text-red' : ''">{{pizza.size_on_special && pizza.size_on_special === size.name ? size.special_price : size.price}}</span></td>
+            </tr>
+        </tbody>
+    </table></div><v-divider class="mb-2 ml-3 mr-3 mt-2"></v-divider>
+	</v-card>
+</template>
+
+<style>
+	.title {
+		color: green;
+		font-weight: bold;
+	}
+</style>
