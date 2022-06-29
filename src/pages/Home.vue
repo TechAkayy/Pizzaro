@@ -4,7 +4,7 @@
 	import { storeToRefs } from 'pinia'
 
 	const pizzaStore = createPizzaStore()
-	const { pizzas, sizes } = storeToRefs(pizzaStore)
+	const { pizzas } = storeToRefs(pizzaStore)
 	const specials = computed(() => pizzaStore.specials)
 
 	pizzaStore.getSizes()
@@ -111,23 +111,26 @@
 			>
 		</div> </v-container
 	><v-container data-pg-name="Menu"
-		><p
-			class="font-weight-bold mt-1 mt-md-3 mt-sm-2 text-h5 text-md-h3 text-sm-h4"
-			style="font-family: 'Playfair Display', serif !important"
-		>
-			Pizza Menu
-		</p>
-		<p class="mt-2 text-caption text-md-caption" style="max-width: 600px">
-			Choose from our plethora of exquisite pizza creations
-		</p>
-		<v-container class="">
-			<v-row>
-				<v-col
-					v-for="(pizza, index) in pizzas"
-					:key="index"
-					class="justify-center"
-					><MenuCard data-pg-name="MenuCard" :pizza="pizza"
-				/></v-col>
-			</v-row> </v-container></v-container
+		><v-row class="">
+			<v-col>
+				<p
+					class="font-weight-bold mt-1 mt-md-3 mt-sm-2 text-h5 text-md-h3 text-sm-h4"
+					style="font-family: 'Playfair Display', serif !important"
+				>
+					Pizza Menu
+				</p>
+				<p class="mt-2 text-caption text-md-caption" style="max-width: 600px">
+					Choose from our plethora of exquisite pizza creations
+				</p>
+			</v-col>
+		</v-row>
+
+		<v-row>
+			<v-col
+				v-for="(pizza, index) in pizzas"
+				:key="index"
+				class="justify-center"
+				><MenuCard data-pg-name="MenuCard" :pizza="pizza"
+			/></v-col> </v-row></v-container
 	><v-container data-pg-name="Footer"></v-container>
 </template>
