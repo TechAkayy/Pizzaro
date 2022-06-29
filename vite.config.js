@@ -52,7 +52,10 @@ export default defineConfig({
 				})
 			]
 		}),
-		vuetify({ autoImport: true }),
+		vuetify({
+			autoImport: true
+			// styles: 'expose'
+		}),
 		Components({
 			dirs: ['src/components']
 		})
