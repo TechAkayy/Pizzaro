@@ -1,7 +1,7 @@
-import devtools from '@vue/devtools'
-if (process.env.NODE_ENV === 'development') {
-	devtools.connect(/* host, port */)
-}
+// import devtools from '@vue/devtools'
+// if (process.env.NODE_ENV === 'development') {
+// 	devtools.connect(/* host, port */)
+// }
 
 import 'uno.css'
 
@@ -11,7 +11,12 @@ import router from './router'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 import { createPinia } from 'pinia'
+import { VueSelect } from 'vue-select'
+import 'vue-select/dist/vue-select.css'
 
 // loadFonts()
 
-createApp(App).use(createPinia()).use(router).use(vuetify).mount('#app')
+const app = createApp(App)
+
+app.component('vue-select', VueSelect)
+app.use(createPinia()).use(router).use(vuetify).mount('#app')
