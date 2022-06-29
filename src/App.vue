@@ -18,9 +18,9 @@
                     <v-tab to="/" value="home" selected-class="v-tab--selected">
                         <v-img src="src/assets/logo.svg" width="75"></v-img>
                     </v-tab>
-                    <v-tab class="d-none d-sm-flex hidden-only text-subtitle-2" to="/order" value="order" prepend-icon="noto-pizza" selected-class="v-tab--selected">My Cart
-                        <v-chip density="compact" color="error" size="small" variant="flat" rounded tag="span">6</v-chip>
-                    </v-tab>
+                    <v-tab class="d-none d-sm-flex hidden-only text-subtitle-2" to="/order" value="order" prepend-icon="noto-pizza">My Cart
+                        
+                    <v-badge color="error" content="6" inline class="ml-n1"></v-badge></v-tab>
                     <v-tab to="/order" value="order" class="d-sm-none text-subtitle-2" selected-class="v-tab--selected">My Cart
                         <v-chip density="compact" color="error" size="small" variant="flat" class=" rounded" tag="span">6</v-chip>
                     </v-tab>
