@@ -1,13 +1,11 @@
-<script setup class="">
+<script setup>
 	import { computed, ref } from 'vue'
 	import { storeToRefs } from 'pinia'
 	import { createPizzaStore } from '@/stores/pizzas'
+
 	const pizzaStore = createPizzaStore()
 	const { sizes } = storeToRefs(pizzaStore)
-	const sizeOptions = computed(() =>
-		sizes.value.map((size) => size.description)
-	)
-	const selectedSize = ref(sizeOptions.value[0])
+	let selectedSize = ref(sizes.value[0])
 
 	const props = defineProps({
 		pizza: {
@@ -104,7 +102,6 @@
 						v-model="selectedSize"
 						:options="sizes"
 						label="description"
-						:value="sizes[0]"
 						append-to-body
 						:clearable="false"
 						:searchable="false"
