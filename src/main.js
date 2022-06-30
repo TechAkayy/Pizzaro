@@ -14,7 +14,7 @@ import { createPinia } from 'pinia'
 import { VueSelect } from 'vue-select'
 import 'vue-select/dist/vue-select.css'
 
-// loadFonts()
+loadFonts()
 
 const app = createApp(App)
 
