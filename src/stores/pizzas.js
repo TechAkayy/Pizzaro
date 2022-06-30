@@ -62,7 +62,7 @@ export const createPizzaStore = defineStore({
 	actions: {
 		getPizzas() {
 			axios
-				.get('http://localhost:4001/pizzas')
+				.get('http://localhost:4000/pizzas')
 				.then((response) => {
 					this.pizzas = response.data
 				})
@@ -72,7 +72,7 @@ export const createPizzaStore = defineStore({
 		},
 		getSizes() {
 			axios
-				.get('http://localhost:4001/sizes')
+				.get('http://localhost:4000/sizes')
 				.then((response) => {
 					this.sizes = response.data
 				})
