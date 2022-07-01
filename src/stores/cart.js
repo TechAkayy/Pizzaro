@@ -47,11 +47,8 @@ export const useCartStore = defineStore({
 				})
 			}
 		},
-		removeFromCart(name) {},
 		incrementCartItemCount(existingItem) {
 			existingItem.count++
-		},
-		decrementCartItemCount(item) {},
-		placeOrder() {}
+		}
 	}
 })
