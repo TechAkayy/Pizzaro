@@ -18,7 +18,7 @@ export const useCartStore = defineStore({
 		cartItems() {
 			return this.items.map((item) => ({
 				...item,
-				countPrice: item.count * item.price
+				countPrice: this.roundPrice(item.count * item.price)
 			}))
 		},
 		count() {
@@ -47,13 +47,13 @@ export const useCartStore = defineStore({
 	},
 	actions: {
 		addToCart(newItem, selectedSize) {
-			const existingItem = this.items.find(
+			const existingItemIndex = this.items.findIndex(
 				(item) =>
 					item.name === newItem.name &&
 					item.selectedSize.name === selectedSize.name
 			)
-			if (existingItem) {
-				this.incrementCartItemCount(existingItem)
+			if (existingItemIndex > -1) {
+				this.incrementCartItemCount(existingItemIndex)
 			} else {
 				const item = { ...newItem }
 				item.selectedSize = selectedSize
@@ -70,12 +70,32 @@ export const useCartStore = defineStore({
 				})
 			}
 		},
-		removeFromCart(name) {},
-		incrementCartItemCount(existingItem) {
-			existingItem.count++
+		removeFromCart(name) {
+			const index = this.items.findIndex((item) => item.name === name)
+			if (index > -1) this.items.splice(index, 1)
 		},
-		decrementCartItemCount(item) {},
-		placeOrder() {},
+		incrementCartItemCount(index) {
+			this.items[index].count++
+		},
+		decrementCartItemCount(index) {
+			if (this.items[index].count !== 1) {
+				this.items[index].count--
+			}
+		},
+		placeOrder() {
+			axios
+				.post('http://localhost:4000/cart', {
+					items: this.items,
+					deliveryAddress: this.deliveryAddress
+				})
+				.then(() => {
+					this.deliveryAddress = ''
+					this.items = []
+				})
+				.catch((error) => {
+					console.log(error)
+				})
+		},
 		roundPrice(price) {
 			return price.toFixed(2)
 			// https://www.delftstack.com/howto/javascript/javascript-round-to-2-decimal-places/
