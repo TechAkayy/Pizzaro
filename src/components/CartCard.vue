@@ -96,7 +96,7 @@
 							</div>
 						</td>
 						<td>
-							<div class="font-weight-bold">${{ cartAmounts.subTotal }}</div>
+							<div class="font-weight-bold">${{ cartAmounts.deliveryFee }}</div>
 						</td>
 					</tr>
 					<tr class="d-none">

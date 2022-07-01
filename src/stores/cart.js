@@ -22,10 +22,13 @@ export const useCartStore = defineStore({
 			}))
 		},
 		count() {
-			return this.items.length
+			return this.cartItems.length
 		},
 		subTotal() {
-			return this.items.reduce((acc, item) => Number(item.price) + acc, 0)
+			return this.cartItems.reduce(
+				(acc, item) => Number(item.countPrice) + acc,
+				0
+			)
 		},
 		gst() {
 			return (this.subTotal * 10) / 100

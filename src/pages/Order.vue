@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<h1>This is the order page</h1>
+		<v-container>
+			<CartCard />
+		</v-container>
 	</div>
 </template>
 
