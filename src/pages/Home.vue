@@ -124,12 +124,19 @@
 			</v-col>
 		</v-row>
 
-		<v-row>
-			<v-col
-				v-for="(pizza, index) in pizzas"
-				:key="index"
-				class="justify-center"
-				><MenuCard data-pg-name="MenuCard" :pizza="pizza"
+		<v-row
+			><v-col>
+				<v-row>
+					<v-col
+						v-for="(pizza, index) in pizzas"
+						:key="index"
+						class="justify-center"
+					>
+						<MenuCard data-pg-name="MenuCard" :pizza="pizza" />
+					</v-col>
+				</v-row> </v-col
+			><v-col cols="auto" xxl="false" class="d-none d-xl-block"
+				><CartCard
 			/></v-col> </v-row></v-container
 	><v-container data-pg-name="Footer"></v-container>
 </template>

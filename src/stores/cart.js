@@ -20,6 +20,29 @@ export const useCartStore = defineStore({
 				...item,
 				countPrice: item.count * item.price
 			}))
+		},
+		count() {
+			return this.items.length
+		},
+		subTotal() {
+			return this.items.reduce((acc, item) => Number(item.price) + acc, 0)
+		},
+		gst() {
+			return (this.subTotal * 10) / 100
+		},
+		deliveryFee() {
+			return this.subTotal > 50 ? 0 : 5
+		},
+		total() {
+			return this.subTotal + this.gst + this.deliveryFee
+		},
+		cartAmounts() {
+			return {
+				subTotal: this.roundPrice(this.subTotal),
+				gst: this.roundPrice(this.gst),
+				deliveryFee: this.roundPrice(this.deliveryFee),
+				total: this.roundPrice(this.total)
+			}
 		}
 	},
 	actions: {
@@ -47,8 +70,16 @@ export const useCartStore = defineStore({
 				})
 			}
 		},
+		removeFromCart(name) {},
 		incrementCartItemCount(existingItem) {
 			existingItem.count++
+		},
+		decrementCartItemCount(item) {},
+		placeOrder() {},
+		roundPrice(price) {
+			return price.toFixed(2)
+			// https://www.delftstack.com/howto/javascript/javascript-round-to-2-decimal-places/
+			// return +(Math.round(price + 'e+2') + 'e-2')
 		}
 	}
 })
