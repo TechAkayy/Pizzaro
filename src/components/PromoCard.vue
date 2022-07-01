@@ -32,7 +32,7 @@
 				>${{ selectedSize.special_price }}</span
 			>
 			<span class="font-weight-bold text-caption text-decoration-line-through"
-				>${{ special.price }}</span
+				>${{ selectedSize.special_price }}</span
 			>
 		</v-card-title>
 		<div class="d-flex justify-center">
