@@ -60,6 +60,7 @@ export const useCartStore = defineStore({
 			} else {
 				const item = { ...newItem }
 				item.selectedSize = selectedSize
+				item.selected_size = selectedSize.name
 
 				const itemPrice =
 					item.size_on_special &&
@@ -86,11 +87,19 @@ export const useCartStore = defineStore({
 			}
 		},
 		placeOrder() {
+			// axios.post('http://localhost:4000/cart', {
+			// 	items: this.items,
+			// 	deliveryAddress: this.deliveryAddress
+			// })
+
 			axios
-				.post('http://localhost:4000/cart', {
-					items: this.items,
-					deliveryAddress: this.deliveryAddress
-				})
+				.post(
+					'https://1gurwkpu.directus.app/items/cart',
+					this.cartItems.map((item) => {
+						const { selectedSize, id, date_created, ...cartItem } = item
+						return cartItem
+					})
+				)
 				.then(() => {
 					this.deliveryAddress = ''
 					this.items = []

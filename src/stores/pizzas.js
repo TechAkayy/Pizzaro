@@ -39,14 +39,27 @@ export const usePizzaStore = defineStore({
 
 	actions: {
 		getPizzas() {
+			// axios.get('http://localhost:4000/sizes').then((response) => {
+			// 	this.sizes = response.data
+			// 	axios
+			// 		.get('http://localhost:4000/pizzas')
+			// 		.then((response) => {
+			// 			this.pizzas = response.data
+			// 			// this.updateSpecialPrices()
+			// 		})
+			// 		.catch((error) => {
+			// 			console.log(error)
+			// 		})
+			// })
+
 			axios
-				.get('http://localhost:4000/sizes')
+				.get('https://1gurwkpu.directus.app/items/sizes')
 				.then((response) => {
-					this.sizes = response.data
+					this.sizes = response.data.data
 					axios
-						.get('http://localhost:4000/pizzas')
+						.get('https://1gurwkpu.directus.app/items/pizzas')
 						.then((response) => {
-							this.pizzas = response.data
+							this.pizzas = response.data.data
 							// this.updateSpecialPrices()
 						})
 						.catch((error) => {
