@@ -1,11 +1,8 @@
 <script setup>
 	import { computed, ref } from 'vue'
 	import { storeToRefs } from 'pinia'
-	import { createPizzaStore } from '@/stores/pizzas'
-
-	const pizzaStore = createPizzaStore()
-	const { sizes } = storeToRefs(pizzaStore)
-	let selectedSize = ref(sizes.value[0])
+	import { usePizzaStore } from '@/stores/pizzas'
+	import { useCartStore } from '@/stores/cart'
 
 	const props = defineProps({
 		pizza: {
@@ -13,6 +10,13 @@
 			required: true
 		}
 	})
+
+	const pizzaStore = usePizzaStore()
+	const { sizes } = storeToRefs(pizzaStore)
+	let selectedSize = ref(sizes.value[0])
+
+	const cartStore = useCartStore()
+	const { addToCart } = cartStore
 </script>
 
 <style lang="scss">
@@ -115,7 +119,10 @@
 					variant="tonal"
 					>Add</v-btn
 				>
-				<v-btn class="bg-error d-none d-sm-block ml-2" density="compact"
+				<v-btn
+					class="bg-error d-none d-sm-block ml-2"
+					density="compact"
+					@click="addToCart(pizza, selectedSize)"
 					>Add</v-btn
 				>
 			</div>

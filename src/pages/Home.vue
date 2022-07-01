@@ -1,13 +1,12 @@
 <script setup>
 	import { computed } from 'vue'
-	import { createPizzaStore } from '@/stores/pizzas'
+	import { usePizzaStore } from '@/stores/pizzas'
 	import { storeToRefs } from 'pinia'
 
-	const pizzaStore = createPizzaStore()
+	const pizzaStore = usePizzaStore()
 	const { pizzas } = storeToRefs(pizzaStore)
 	const specials = computed(() => pizzaStore.specials)
 
-	pizzaStore.getSizes()
 	pizzaStore.getPizzas()
 </script>
 <style>
@@ -48,10 +47,16 @@
 <template>
 	<v-container data-pg-name="Header">
 		<div class="align-center d-flex flex-column justify-center">
-			<p class="font-weight-bold mt-1 mt-md-3 mt-sm-2 text-center text-h5 text-md-h3 text-sm-h4" style="font-family: 'Playfair Display', serif !important">
+			<p
+				class="font-weight-bold mt-1 mt-md-3 mt-sm-2 text-center text-h5 text-md-h3 text-sm-h4"
+				style="font-family: 'Playfair Display', serif !important"
+			>
 				Famous hand tossed pizza
 			</p>
-			<p class="mt-2 text-caption text-center text-md-caption" style="max-width: 600px">
+			<p
+				class="mt-2 text-caption text-center text-md-caption"
+				style="max-width: 600px"
+			>
 				Yes we toss our pizza in mid air it collects all the dirt particles of
 				metropolitan pollution that creates a distict flavor of each pizza
 				crust.
@@ -65,14 +70,27 @@
 					</v-col>
 				</v-row>
 				<v-row>
-					<v-col v-for="(special, index) in specials" :key="index" class="justify-center"><PromoCard :special="special" data-pg-name="PromoCard"/></v-col>
-				</v-row> </v-container><v-container style="grid-area: free-delivery" class="align-center bg-white d-flex d-sm-inline flex-column text-center text-sm-left"><p class=" font-weight-bold text-h6">
+					<v-col
+						v-for="(special, index) in specials"
+						:key="index"
+						class="justify-center"
+						><PromoCard :special="special" data-pg-name="PromoCard"
+					/></v-col>
+				</v-row> </v-container
+			><v-container
+				style="grid-area: free-delivery"
+				class="align-center bg-white d-flex d-sm-inline flex-column text-center text-sm-left"
+				><p class="font-weight-bold text-h6">
 					Free delivery for orders over $50
 				</p>
 				<p class="text-caption">In selected locations</p>
 				<div class="mt-2">
 					<a class="text-body-2 text-indigo">Learn More</a>
-				</div></v-container><v-container style="grid-area: free-fries" class="align-center bg-white d-flex justify-center"><div class="fries">
+				</div></v-container
+			><v-container
+				style="grid-area: free-fries"
+				class="align-center bg-white d-flex justify-center"
+				><div class="fries">
 					<v-img src="src/assets/images/free-fries.png" class></v-img>
 				</div>
 				<div class="align-center d-flex d-sm-block ml-2">
@@ -81,14 +99,23 @@
 						Every friday we have free fries for every $20 order
 					</p>
 				</div>
-				<div class="align-center bg-light-blue-darken-3 d-flex flex-column justify-center ml-2 pb-1 pl-2 pr-2 pt-1" style="max-height: 120px; height: 100%">
+				<div
+					class="align-center bg-light-blue-darken-3 d-flex flex-column justify-center ml-2 pb-1 pl-2 pr-2 pt-1"
+					style="max-height: 120px; height: 100%"
+				>
 					<p class="text-caption text-uppercase">IN</p>
 					<p class="font-weight-bold text-h5 text-uppercase">2</p>
 					<p class="text-caption text-uppercase">DAYS</p>
-				</div></v-container>
-		</div> </v-container><v-container data-pg-name="Menu"><v-row class="">
+				</div></v-container
+			>
+		</div> </v-container
+	><v-container data-pg-name="Menu"
+		><v-row class="">
 			<v-col>
-				<p class="font-weight-bold mt-1 mt-md-3 mt-sm-2 text-h5 text-md-h3 text-sm-h4" style="font-family: 'Playfair Display', serif !important">
+				<p
+					class="font-weight-bold mt-1 mt-md-3 mt-sm-2 text-h5 text-md-h3 text-sm-h4"
+					style="font-family: 'Playfair Display', serif !important"
+				>
 					Pizza Menu
 				</p>
 				<p class="mt-2 text-caption text-md-caption" style="max-width: 600px">
@@ -98,5 +125,11 @@
 		</v-row>
 
 		<v-row>
-			<v-col v-for="(pizza, index) in pizzas" :key="index" class="justify-center"><MenuCard data-pg-name="MenuCard" :pizza="pizza"/></v-col> </v-row></v-container><v-container data-pg-name="Footer"></v-container>
+			<v-col
+				v-for="(pizza, index) in pizzas"
+				:key="index"
+				class="justify-center"
+				><MenuCard data-pg-name="MenuCard" :pizza="pizza"
+			/></v-col> </v-row></v-container
+	><v-container data-pg-name="Footer"></v-container>
 </template>

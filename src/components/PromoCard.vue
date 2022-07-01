@@ -1,10 +1,24 @@
-<script setup class="">
+<script setup>
+	import { ref } from 'vue'
+	import { storeToRefs } from 'pinia'
+	import { usePizzaStore } from '@/stores/pizzas'
+	import { useCartStore } from '@/stores/cart'
+
 	const props = defineProps({
 		special: {
 			type: Object,
 			required: true
 		}
 	})
+
+	const pizzaStore = usePizzaStore()
+	const { sizes } = storeToRefs(pizzaStore)
+	let selectedSize = ref(
+		sizes.value.find((size) => size.name === props.special.size_on_special)
+	)
+
+	const cartStore = useCartStore()
+	const { addToCart } = cartStore
 </script>
 
 <template>
@@ -15,7 +29,7 @@
 		}}</v-card-title>
 		<v-card-title class="justify-center text-subtitle-2">
 			<span class="font-weight-bold mr-2 text-error text-subtitle-1"
-				>${{ special.special_price }}</span
+				>${{ selectedSize.special_price }}</span
 			>
 			<span class="font-weight-bold text-caption text-decoration-line-through"
 				>${{ special.price }}</span
@@ -25,7 +39,11 @@
 			<v-card-subtitle>{{ special.size_on_special }}</v-card-subtitle
 			><v-btn icon="mdi-plus-box" class="d-block d-sm-none ml-2 text-error"
 				>Add</v-btn
-			><v-btn class="d-none d-sm-block" color="error" density="compact"
+			><v-btn
+				class="d-none d-sm-block"
+				color="error"
+				density="compact"
+				@click="addToCart(special, selectedSize)"
 				>Add</v-btn
 			>
 		</div>
