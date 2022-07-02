@@ -73,7 +73,7 @@
 							<span
 								:class="
 									pizza.size_on_special && pizza.size_on_special === size.name
-										? 'text-red'
+										? 'text-error'
 										: ''
 								"
 								>${{
