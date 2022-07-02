@@ -6,8 +6,6 @@
 	const pizzaStore = usePizzaStore()
 	const { pizzas } = storeToRefs(pizzaStore)
 	const specials = computed(() => pizzaStore.specials)
-
-	pizzaStore.getPizzas()
 </script>
 <style>
 	.promo-grid {
@@ -64,7 +62,7 @@
 		</div>
 		<div class="mt-2 mt-sm-4 promo-grid">
 			<v-container style="grid-area: promos" class="bg-white">
-				<v-row class="">
+				<v-row>
 					<v-col>
 						<p class="font-weight-bold text-h6">Rainy day promos</p>
 					</v-col>
