@@ -77,7 +77,7 @@
 				</v-row> </v-container
 			><v-container
 				style="grid-area: free-delivery"
-				class="align-center bg-white d-flex d-sm-inline flex-column text-center text-sm-left"
+				class="align-center align-sm-start align-xl-center bg-white d-flex flex-column text-center text-sm-left"
 				><p class="font-weight-bold text-h6">
 					Free delivery for orders over $50
 				</p>
@@ -87,7 +87,7 @@
 				</div></v-container
 			><v-container
 				style="grid-area: free-fries"
-				class="align-center bg-white d-flex justify-center"
+				class="align-center bg-white d-flex justify-center justify-sm-space-around"
 				><div class="fries">
 					<v-img src="src/assets/images/free-fries.png" class></v-img>
 				</div>
