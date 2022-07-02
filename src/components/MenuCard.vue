@@ -99,33 +99,31 @@
 			density="compact"
 		></v-select> -->
 
-		<v-card-actions class="justify-center mt-n2">
-			<div class="align-center d-flex flex-nowrap mt-2">
-				<div class="ml-2">
-					<vue-select
-						v-model="selectedSize"
-						:options="sizes"
-						label="description"
-						append-to-body
-						:clearable="false"
-						:searchable="false"
-						style="min-width: 150px"
-					></vue-select>
-				</div>
-				<v-btn
-					class="d-sm-none ml-2 mr-2"
-					icon="mdi-plus-box"
-					color="error"
-					variant="tonal"
-					>Add</v-btn
-				>
-				<v-btn
-					class="bg-error d-none d-sm-block ml-2"
-					density="compact"
-					@click="addToCart(pizza, selectedSize)"
-					>Add</v-btn
-				>
+		<div class="align-center d-flex flex-nowrap justify-center mt-2">
+			<div class="ml-2">
+				<vue-select
+					v-model="selectedSize"
+					:options="sizes"
+					label="description"
+					append-to-body
+					:clearable="false"
+					:searchable="false"
+					style="min-width: 150px"
+				></vue-select>
 			</div>
-		</v-card-actions>
+			<v-btn
+				class="d-sm-none ml-2 mr-2"
+				icon="mdi-plus-box"
+				color="error"
+				size="small"
+				>Add</v-btn
+			>
+			<v-btn
+				class="bg-error d-none d-sm-block ml-2"
+				density="compact"
+				@click="addToCart(pizza, selectedSize)"
+				>Add</v-btn
+			>
+		</div>
 	</v-card>
 </template>
