@@ -116,6 +116,7 @@
 				icon="mdi-plus-box"
 				color="error"
 				size="small"
+				@click="addToCart(pizza, selectedSize)"
 				>Add</v-btn
 			>
 			<v-btn

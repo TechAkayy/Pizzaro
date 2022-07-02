@@ -37,7 +37,11 @@
 		</v-card-title>
 		<div class="d-flex justify-center">
 			<v-card-subtitle>{{ special.size_on_special }}</v-card-subtitle
-			><v-btn icon="mdi-plus-box" class="d-block d-sm-none ml-2" color="error"
+			><v-btn
+				icon="mdi-plus-box"
+				class="d-block d-sm-none ml-2"
+				color="error"
+				@click="addToCart(special, selectedSize)"
 				>Add</v-btn
 			><v-btn
 				class="d-none d-sm-block"
