@@ -5,7 +5,13 @@
 
 	const orderStore = useOrderStore()
 	const { paymentInfo, orderAmounts } =
-		storeToRefs(orderStore)
+    storeToRefs(orderStore)
+
+  const cardDetails = ref({
+    cardNumber: '',
+    expiry: '',
+    cvv: ''  
+  })
 
 </script>
 <template>
@@ -14,31 +20,31 @@
         <v-radio-group class="" v-model="paymentInfo.method" hide-details>
             <v-container>
                 <v-radio class="" value="card">
-                    <template v-slot:label><span class="font-weight-bold text-black text-body-1">Credit or Debit Card</span>
+                    <template v-slot:label><span class="font-weight-bold text-secondary-darken-1 text-subtitle-2">Credit or Debit Card</span>
                     </template>
                 </v-radio>
                 <v-row class="" v-if="paymentInfo.method === 'card'">
                     <v-col>
-                        <v-text-field hide-details density="compact" variant="outlined" placeholder="card number"></v-text-field>
+                        <v-text-field hide-details density="compact" variant="outlined" placeholder="card number" v-model="cardDetails.cardNumber"></v-text-field>
                     </v-col>
                 </v-row>
                 <v-row v-if="paymentInfo.method === 'card'">
                     <v-col>
-                        <v-text-field variant="outlined" hide-details density="compact" placeholder="mm/yy"></v-text-field>
+                        <v-text-field variant="outlined" hide-details density="compact" placeholder="mm/yy" v-model="cardDetails.expiry"></v-text-field>
                     </v-col>
                     <v-col cols="4">
-                        <v-text-field density="compact" hide-details variant="outlined" placeholder="cvv"></v-text-field>
+                        <v-text-field density="compact" hide-details variant="outlined" placeholder="cvv" v-model="cardDetails.cvv"></v-text-field>
                     </v-col>
                 </v-row>
             </v-container>
             <v-container>
                 <v-radio class="" value="cash_on_delivery">
-                    <template v-slot:label><span class="font-weight-bold text-black text-body-1">Cash on Delivery</span>
+                    <template v-slot:label><span class="font-weight-bold text-secondary-darken-1 text-subtitle-2">Cash on Delivery</span>
                     </template>
                 </v-radio>
             </v-container>
             <v-container class="d-flex justify-end">
-                <v-btn class="text-capitalize" color="error" size="large">Pay ${{orderAmounts.total}}</v-btn>
+                <v-btn class=" text-capitalize" color="error" size="large">{{paymentInfo.method==='card'?  'Pay $'+orderAmounts.total: 'Place Order'}}</v-btn>
             </v-container>
         </v-radio-group>
     </v-card>
