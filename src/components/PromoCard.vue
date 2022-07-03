@@ -2,7 +2,7 @@
 	import { ref } from 'vue'
 	import { storeToRefs } from 'pinia'
 	import { usePizzaStore } from '@/stores/pizzas'
-	import { useCartStore } from '@/stores/cart'
+	import { useOrderStore } from '@/stores/order'
 
 	const props = defineProps({
 		special: {
@@ -17,8 +17,8 @@
 		sizes.value.find((size) => size.name === props.special.size_on_special)
 	)
 
-	const cartStore = useCartStore()
-	const { addToCart } = cartStore
+	const orderStore = useOrderStore()
+	const { addToCart } = orderStore
 </script>
 <template>
     <v-card class="pb-3 pt-3" elevation="0" border>

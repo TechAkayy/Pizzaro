@@ -2,7 +2,7 @@
 	import { computed, ref } from 'vue'
 	import { storeToRefs } from 'pinia'
 	import { usePizzaStore } from '@/stores/pizzas'
-	import { useCartStore } from '@/stores/cart'
+	import { useOrderStore } from '@/stores/order'
 
 	const props = defineProps({
 		pizza: {
@@ -15,8 +15,8 @@
 	const { sizes } = storeToRefs(pizzaStore)
 	let selectedSize = ref(sizes.value[0])
 
-	const cartStore = useCartStore()
-	const { addToCart } = cartStore
+	const orderStore = useOrderStore()
+	const { addToCart } = orderStore
 </script>
 <style lang="scss">
 	//https://vue-select.org/guide/css.html#overriding-default-styles

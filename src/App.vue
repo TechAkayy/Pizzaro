@@ -2,14 +2,14 @@
 	import { computed } from 'vue'
 	import { useRoute } from 'vue-router'
 	import { storeToRefs } from 'pinia'
-	import { useCartStore } from '@/stores/cart'
+	import { useOrderStore } from '@/stores/order'
 	import { usePizzaStore } from '@/stores/pizzas'
 
 	const pizzaStore = usePizzaStore()
 	pizzaStore.getPizzas()
 
-	const cartStore = useCartStore()
-	const { count } = storeToRefs(cartStore)
+	const orderStore = useOrderStore()
+	const { count } = storeToRefs(orderStore)
 
 	const route = useRoute()
 	const currentRoute = computed(() => route.name)

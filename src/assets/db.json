@@ -1,88 +1,134 @@
 {
-	"cart": {},
-	"sizes": [
-		{
-			"name": "Regular",
-			"description": "Reg(15in.)",
-			"price": "10.00",
-			"special_price": "8.00"
-		},
-		{
-			"name": "Large",
-			"description": "Lg(22in.)",
-			"price": "14.00",
-			"special_price": "12.00"
-		},
-		{
-			"name": "Family",
-			"description": "Fmly(36in.)",
-			"price": "19.00",
-			"special_price": "17.00"
-		}
-	],
-	"pizzas": [
-		{
-			"name": "Hawaiian Pizza",
-			"img": "./src/assets/images/pizzas/01.png",
-			"ingredients": "Roasted Pork, Ham, Bell pepper, White Onion, Pineapple, Mozzerala & Tomato base"
-		},
-		{
-			"name": "Casa Alfredo",
-			"img": "./src/assets/images/pizzas/02.png",
-			"ingredients": "White sauce pizza, Chicken toppings, Mushrooms, Roaster Garlic and Onions",
-			"size_on_special": "Family"
-		},
-		{
-			"name": "Pepperoni",
-			"img": "./src/assets/images/pizzas/03.png",
-			"ingredients": "Pepperoni, Mozzarella and Tomato base"
-		},
-		{
-			"name": "Kevin's Favorite",
-			"img": "./src/assets/images/pizzas/04.png",
-			"ingredients": "Tripple Sausage, Italian, Hungarian Sausage, Mushroom, Mozarella & Tomato base",
-			"size_on_special": "Regular"
-		},
-		{
-			"name": "Four Cheese",
-			"img": "./src/assets/images/pizzas/05.png",
-			"ingredients": "Fusion of four flavors! Mozerella, Cheddar, Parmesan, Montery Jack, and Tomato base"
-		},
-		{
-			"name": "All Meat",
-			"img": "./src/assets/images/pizzas/06.png",
-			"ingredients": "For Meatlovers, Pork and Beef, Ham, Pepperoni, Bacon, Mozzerella, and Tomato base"
-		},
-		{
-			"name": "The Works",
-			"img": "./src/assets/images/pizzas/07.png",
-			"ingredients": "Everything on it! To long to list here. This is the best pizza ever!"
-		},
-		{
-			"name": "Vegetarian",
-			"img": "./src/assets/images/pizzas/08.png",
-			"ingredients": "Healthy but yummy! Bell pepers, Onion, Mushrooms, Tomatoes, Lettuce, Pinapple, Cucumber, Olives, Mozerella",
-			"size_on_special": "Family"
-		},
-		{
-			"name": "Garlic & Cheese",
-			"img": "./src/assets/images/pizzas/09.png",
-			"ingredients": "Mozzarella, Ham Pork, and Tomato base"
-		},
-		{
-			"name": "Ham & Cheese",
-			"img": "./src/assets/images/pizzas/10.png",
-			"ingredients": "Mozzarella, Ham Pork, and Tomato base"
-		},
-		{
-			"name": "Greekiza",
-			"img": "./src/assets/images/pizzas/11.png",
-			"ingredients": "Something hot & fishy, Tuna, Black olives, Veggies, and Tomato base"
-		},
-		{
-			"name": "Neopolitan",
-			"img": "./src/assets/images/pizzas/12.png",
-			"ingredients": "Plain and simple Mozzerella, Fresh Basil, Roasted green tomatoes, and Tomato base"
-		}
-	]
+  "cart": {
+    "items": [
+      {
+        "name": "Casa Alfredo",
+        "img": "./src/assets/images/pizzas/02.png",
+        "ingredients": "White sauce pizza, Chicken toppings, Mushrooms, Roaster Garlic and Onions",
+        "size_on_special": "Family",
+        "selectedSize": {
+          "name": "Family",
+          "description": "Fmly(36in.)",
+          "price": "19.00",
+          "special_price": "17.00"
+        },
+        "price": "17.00",
+        "count": 1
+      },
+      {
+        "name": "Kevin's Favorite",
+        "img": "./src/assets/images/pizzas/04.png",
+        "ingredients": "Tripple Sausage, Italian, Hungarian Sausage, Mushroom, Mozarella & Tomato base",
+        "size_on_special": "Regular",
+        "selectedSize": {
+          "name": "Regular",
+          "description": "Reg(15in.)",
+          "price": "10.00",
+          "special_price": "8.00"
+        },
+        "price": "8.00",
+        "count": 1
+      },
+      {
+        "name": "Vegetarian",
+        "img": "./src/assets/images/pizzas/08.png",
+        "ingredients": "Healthy but yummy! Bell pepers, Onion, Mushrooms, Tomatoes, Lettuce, Pinapple, Cucumber, Olives, Mozerella",
+        "size_on_special": "Family",
+        "selectedSize": {
+          "name": "Family",
+          "description": "Fmly(36in.)",
+          "price": "19.00",
+          "special_price": "17.00"
+        },
+        "price": "17.00",
+        "count": 1
+      }
+    ],
+    "deliveryAddress": "asdf"
+  },
+  "sizes": [
+    {
+      "name": "Regular",
+      "description": "Reg(15in.)",
+      "price": "10.00",
+      "special_price": "8.00"
+    },
+    {
+      "name": "Large",
+      "description": "Lg(22in.)",
+      "price": "14.00",
+      "special_price": "12.00"
+    },
+    {
+      "name": "Family",
+      "description": "Fmly(36in.)",
+      "price": "19.00",
+      "special_price": "17.00"
+    }
+  ],
+  "pizzas": [
+    {
+      "name": "Hawaiian Pizza",
+      "img": "./src/assets/images/pizzas/01.png",
+      "ingredients": "Roasted Pork, Ham, Bell pepper, White Onion, Pineapple, Mozzerala & Tomato base"
+    },
+    {
+      "name": "Casa Alfredo",
+      "img": "./src/assets/images/pizzas/02.png",
+      "ingredients": "White sauce pizza, Chicken toppings, Mushrooms, Roaster Garlic and Onions",
+      "size_on_special": "Family"
+    },
+    {
+      "name": "Pepperoni",
+      "img": "./src/assets/images/pizzas/03.png",
+      "ingredients": "Pepperoni, Mozzarella and Tomato base"
+    },
+    {
+      "name": "Kevin's Favorite",
+      "img": "./src/assets/images/pizzas/04.png",
+      "ingredients": "Tripple Sausage, Italian, Hungarian Sausage, Mushroom, Mozarella & Tomato base",
+      "size_on_special": "Regular"
+    },
+    {
+      "name": "Four Cheese",
+      "img": "./src/assets/images/pizzas/05.png",
+      "ingredients": "Fusion of four flavors! Mozerella, Cheddar, Parmesan, Montery Jack, and Tomato base"
+    },
+    {
+      "name": "All Meat",
+      "img": "./src/assets/images/pizzas/06.png",
+      "ingredients": "For Meatlovers, Pork and Beef, Ham, Pepperoni, Bacon, Mozzerella, and Tomato base"
+    },
+    {
+      "name": "The Works",
+      "img": "./src/assets/images/pizzas/07.png",
+      "ingredients": "Everything on it! To long to list here. This is the best pizza ever!"
+    },
+    {
+      "name": "Vegetarian",
+      "img": "./src/assets/images/pizzas/08.png",
+      "ingredients": "Healthy but yummy! Bell pepers, Onion, Mushrooms, Tomatoes, Lettuce, Pinapple, Cucumber, Olives, Mozerella",
+      "size_on_special": "Family"
+    },
+    {
+      "name": "Garlic & Cheese",
+      "img": "./src/assets/images/pizzas/09.png",
+      "ingredients": "Mozzarella, Ham Pork, and Tomato base"
+    },
+    {
+      "name": "Ham & Cheese",
+      "img": "./src/assets/images/pizzas/10.png",
+      "ingredients": "Mozzarella, Ham Pork, and Tomato base"
+    },
+    {
+      "name": "Greekiza",
+      "img": "./src/assets/images/pizzas/11.png",
+      "ingredients": "Something hot & fishy, Tuna, Black olives, Veggies, and Tomato base"
+    },
+    {
+      "name": "Neopolitan",
+      "img": "./src/assets/images/pizzas/12.png",
+      "ingredients": "Plain and simple Mozzerella, Fresh Basil, Roasted green tomatoes, and Tomato base"
+    }
+  ]
 }
