@@ -74,15 +74,21 @@ export const useOrderStore = defineStore({
 		// countPrice: 1 x selectedSize.price / special_price
 		// }
 		// ],
+		discountCode: '',
+		paymentInfo: {
+			method: 'card', // card, cash_on_delivery
+      card: {
+        endingWith: ''
+      }
+		},
+		status: '', // paid, received, cooking, on_its_way, delivered
 		deliveryInfo: {
 			address: '',
 			contact: '',
 			mobileNumber: '',
-			instructions: ''
-    },
-    discountCode: '',
-		status: '', // paid, received, cooking, on_its_way, delivered
-		trackingCode: ''
+			instructions: '',
+			trackingCode: ''
+		}
 	}),
 	getters: {
 		orderItems() {
@@ -105,7 +111,9 @@ export const useOrderStore = defineStore({
 		},
 		discount() {
 			// 10% discount
-			return this.discountCode? ((this.netTotal + this.deliveryFee) * (10 / 100)) : 0
+			return this.discountCode
+				? (this.netTotal + this.deliveryFee) * (10 / 100)
+				: 0
 		},
 		subTotal() {
 			return this.netTotal + this.deliveryFee - this.discount
@@ -190,9 +198,9 @@ export const useOrderStore = defineStore({
 			return price.toFixed(2)
 			// https://www.delftstack.com/howto/javascript/javascript-round-to-2-decimal-places/
 			// return +(Math.round(price + 'e+2') + 'e-2')
-    },
-    applyDiscountCode(code) {
-      this.discountCode = code
-    }
+		},
+		applyDiscountCode(code) {
+			this.discountCode = code
+		}
 	}
 })

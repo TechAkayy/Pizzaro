@@ -4,7 +4,7 @@
 	import { useOrderStore } from '@/stores/order'
 
 	const orderStore = useOrderStore()
-	const { orderItems, count, deliveryInfo, orderAmounts, status, trackingCode, discountCode } =
+	const { orderItems, orderAmounts, discountCode } =
 		storeToRefs(orderStore)
 	const {
 		removeFromCart,
@@ -21,16 +21,15 @@
   
 </script>
 <template class="">
-    <v-card class="mr-2 pb-2 pl-2 pr-2 pt-4">
-        <v-card-title>
-            <v-icon icon="noto-pizza" size="x-small"></v-icon><span class="ml-1 text-no-wrap">My Cart</span>
-            <v-spacer></v-spacer>
-            <v-form>
-                <v-text-field hide-details placeholder="Discount Code" density="compact" variant="outlined" style="width: 200px;" v-model="code"></v-text-field>
-            </v-form>
-            <v-btn color="error" class="ml-2" @click="applyCode">Apply</v-btn>             
-        </v-card-title>
-        <v-container>
+    <v-card class="pa-2" style="height: 100%;">
+        <v-container class="cart-width">
+            <v-card-title>
+                <v-icon icon="noto-pizza" size="x-small"></v-icon>
+                <span class="ml-1 text-no-wrap">My Cart</span>
+                <v-spacer></v-spacer>
+                <v-text-field hide-details placeholder="Discount Code" density="compact" variant="outlined" v-model="code" class="" style="max-width: 200px;"></v-text-field>
+                <v-btn color="error" class="ml-2" @click="applyCode">Apply</v-btn>                 
+            </v-card-title>
             <v-table>
                 <tbody>
                     <tr v-for="(item, index) in orderItems" :key="index">
@@ -116,9 +115,5 @@
         </v-container>
     </v-card>
 </template>
-<style>
-	.title {
-		color: green;
-		font-weight: bold;
-	}
+<style>@media (min-width:1264px) { .cart-width {  max-width: 900px !important; } } @media (min-width:1904px) {.cart-width {  max-width: 100% !important; } }
 </style>
