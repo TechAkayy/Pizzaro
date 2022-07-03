@@ -4,7 +4,7 @@
 	import { useOrderStore } from '@/stores/order'
 
 	const orderStore = useOrderStore()
-	const { paymentInfo, orderAmounts } =
+  const { paymentInfo, orderAmounts } =
     storeToRefs(orderStore)
 
   const cardDetails = ref({
@@ -12,6 +12,25 @@
     expiry: '',
     cvv: ''  
   })
+
+  const cardNumberRules = [
+    v => !!v || 'Card Number is required',
+    v => {
+      const replaced = v && v.replaceAll(' ', '')
+      return !!(replaced && !(isNaN(replaced)) && replaced.length === 16) || 'Invalid Card Number'
+    },
+  ]
+  const cardExpiryRules = [
+    v => !!v || 'Card Expiry is required',
+    v => {
+      const replaced = v && v.replaceAll('/', '')
+      return !!(replaced && !(isNaN(replaced)) && replaced.length === 4) || 'Invalid Card Expiry'
+    },
+  ]
+  const cardCvvRules = [
+    v => !!v || 'Card CVV is required',
+    v => !!(v && !(isNaN(v)) && v.length === 3) || 'Invalid Card CVV',
+  ]
 
 </script>
 <template>
@@ -25,15 +44,15 @@
                 </v-radio>
                 <v-row class="" v-if="paymentInfo.method === 'card'">
                     <v-col>
-                        <v-text-field hide-details density="compact" variant="outlined" placeholder="card number" v-model="cardDetails.cardNumber"></v-text-field>
+                        <v-text-field density="compact" variant="outlined" placeholder="card number" v-model="cardDetails.cardNumber" :rules="cardNumberRules"></v-text-field>
                     </v-col>
                 </v-row>
                 <v-row v-if="paymentInfo.method === 'card'">
                     <v-col>
-                        <v-text-field variant="outlined" hide-details density="compact" placeholder="mm/yy" v-model="cardDetails.expiry"></v-text-field>
+                        <v-text-field variant="outlined" density="compact" placeholder="mm/yy" v-model="cardDetails.expiry" :rules="cardExpiryRules"></v-text-field>
                     </v-col>
                     <v-col cols="4">
-                        <v-text-field density="compact" hide-details variant="outlined" placeholder="cvv" v-model="cardDetails.cvv"></v-text-field>
+                        <v-text-field density="compact" variant="outlined" placeholder="cvv" v-model="cardDetails.cvv" :rules="cardCvvRules"></v-text-field>
                     </v-col>
                 </v-row>
             </v-container>
@@ -44,7 +63,9 @@
                 </v-radio>
             </v-container>
             <v-container class="d-flex justify-end">
-                <v-btn class=" text-capitalize" color="error" size="large">{{paymentInfo.method==='card'?  'Pay $'+orderAmounts.total: 'Place Order'}}</v-btn>
+                <v-btn class=" text-capitalize" color="error" size="large" @click="$emit('submitOrder')">
+                    {{paymentInfo.method==='card'? 'Pay $'+orderAmounts.total: 'Place Order'}}
+</v-btn>
             </v-container>
         </v-radio-group>
     </v-card>

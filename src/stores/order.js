@@ -75,18 +75,15 @@ export const useOrderStore = defineStore({
 		// }
 		// ],
 		discountCode: '',
+		status: '', // paid, received, cooking, on_its_way, delivered
+		valid: false,
 		paymentInfo: {
 			method: 'card', // card, cash_on_delivery
 			card: {
-				validate: false,
-				valid: true,
 				endingWith: ''
 			}
 		},
-		status: '', // paid, received, cooking, on_its_way, delivered
 		deliveryInfo: {
-			validate: false,
-			valid: true,
 			address: '',
 			contact: '',
 			mobileNumber: '',
@@ -176,27 +173,42 @@ export const useOrderStore = defineStore({
 				this.items[index].count--
 			}
 		},
+		runValidation() {
+			if (!this.validate) {
+				if (
+					!this.deliveryInfo.valid ||
+					!this.paymentInfo.valid
+				) {
+					this.validate = true
+				}
+			}
+		},
 		placeOrder() {
+			// this.runValidation()
+			if (this.valid) {
+				console.log('Valid')
+        this.status = 'paid'
+				// axios
+				// 	.post(
+				// 		'https://1gurwkpu.directus.app/items/order',
+				// 		this.orderItems.map((item) => {
+				// 			const { selectedSize, id, date_created, ...orderItem } = item
+				// 			return orderItem
+				// 		})
+				// 	)
+				// 	.then(() => {
+				// 		this.deliveryAddress = ''
+				// 		this.items = []
+				// 	})
+				// 	.catch((error) => {
+				// 		console.log(error)
+				// 	})
+			}
+
 			// axios.post('http://localhost:4000/order', {
 			// 	items: this.items,
 			// 	deliveryAddress: this.deliveryAddress
 			// })
-
-			axios
-				.post(
-					'https://1gurwkpu.directus.app/items/order',
-					this.orderItems.map((item) => {
-						const { selectedSize, id, date_created, ...orderItem } = item
-						return orderItem
-					})
-				)
-				.then(() => {
-					this.deliveryAddress = ''
-					this.items = []
-				})
-				.catch((error) => {
-					console.log(error)
-				})
 		},
 		roundPrice(price) {
 			return price.toFixed(2)
