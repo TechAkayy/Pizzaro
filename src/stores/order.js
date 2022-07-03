@@ -77,12 +77,16 @@ export const useOrderStore = defineStore({
 		discountCode: '',
 		paymentInfo: {
 			method: 'card', // card, cash_on_delivery
-      card: {
-        endingWith: ''
-      }
+			card: {
+				validate: false,
+				valid: true,
+				endingWith: ''
+			}
 		},
 		status: '', // paid, received, cooking, on_its_way, delivered
 		deliveryInfo: {
+			validate: false,
+			valid: true,
 			address: '',
 			contact: '',
 			mobileNumber: '',
