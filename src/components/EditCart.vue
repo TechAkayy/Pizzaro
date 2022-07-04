@@ -33,7 +33,7 @@ const applyCode = () => {
                 <tbody>
                     <tr v-for="(item, index) in cartItems" :key="index">
                         <td>
-                            <v-btn icon="fluent-delete-20-regular" density="compact" variant="flat" @click="removeFromCart(item.name)"></v-btn>
+                            <v-btn icon="fluent-delete-20-regular" density="compact" variant="flat" @click="removeFromCart(item.id)"></v-btn>
                         </td>
                         <td>
                             <v-img width="35" :src="item.img"></v-img>
@@ -45,13 +45,13 @@ const applyCode = () => {
 </div>
                         </td>
                         <td>
-                            <v-btn icon="icon-park-outline-reduce-one" density="compact" variant="flat" @click="decrementCartItemCount(index)"></v-btn>
+                            <v-btn icon="icon-park-outline-reduce-one" density="compact" variant="flat" @click="decrementCartItemCount(item.id)"></v-btn>
                         </td>
                         <td>
                             <div>{{ item.count }}</div>
                         </td>
                         <td>
-                            <v-btn icon="icon-park-outline-add-one" density="compact" variant="flat" @click="incrementCartItemCount(index)"></v-btn>
+                            <v-btn icon="icon-park-outline-add-one" density="compact" variant="flat" @click="incrementCartItemCount(item.id)"></v-btn>
                         </td>
                         <td>
                             <div class="font-weight-bold">${{ item.countPrice }}</div>

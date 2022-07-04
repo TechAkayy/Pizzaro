@@ -153,16 +153,18 @@ export const useOrderStore = defineStore({
 				})
 			}
 		},
-		removeFromCart(name) {
-			const index = this.items.findIndex((item) => item.name === name)
+		removeFromCart(id) {
+			const index = this.items.findIndex((item) => item.id === id)
 			if (index > -1) this.items.splice(index, 1)
 		},
-		incrementCartItemCount(index) {
-			this.items[index].count++
+		incrementCartItemCount(id) {
+			const item = this.items.find((item) => item.id === id)
+			item.count++
 		},
-		decrementCartItemCount(index) {
-			if (this.items[index].count !== 1) {
-				this.items[index].count--
+		decrementCartItemCount(id) {
+			const item = this.items.find((item) => item.id === id)
+			if (item.count !== 1) {
+				item.count--
 			}
 		},
 		runValidation() {
