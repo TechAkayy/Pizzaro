@@ -73,8 +73,7 @@ const specials = computed(() => pizzaStore.specials)
                 <p class="font-weight-bold text-h6">
           Free delivery for orders over $50 </p>
                 <p class="text-caption">In selected locations</p>
-                <div class="mt-2">
-                    <a class="text-body-2 text-indigo">Learn More</a>
+                <div class="mt-2"><a class="text-body-2 text-indigo">Learn More</a>
                 </div>
             </v-container>
             <v-container style="grid-area: free-fries" class="align-center bg-white d-flex justify-center justify-sm-space-around">
@@ -94,7 +93,7 @@ const specials = computed(() => pizzaStore.specials)
             </v-container>
         </div>
     </div>
-    <div data-pg-name="Menu">
+    <div data-pg-name="Menu" class="mt-3 mt-md-4">
         <v-row class="">
             <v-col>
                 <p class="font-weight-bold mt-1 mt-md-3 mt-sm-2 text-h5 text-md-h3 text-sm-h4" style="font-family: 'Playfair Display', serif !important">
