@@ -66,14 +66,6 @@ export const useOrderStore = defineStore({
 				count: 1
 			}
 		],
-		// [
-		// {
-		// pizza fields
-		// selectedSize
-		// count: 1
-		// countPrice: 1 x selectedSize.price / special_price
-		// }
-		// ],
 		discountCode: '',
 		status: '', // paid, received, cooking, on_its_way, delivered
 		valid: false,
@@ -92,17 +84,17 @@ export const useOrderStore = defineStore({
 		}
 	}),
 	getters: {
-		orderItems() {
+		cartItems() {
 			return this.items.map((item) => ({
 				...item,
 				countPrice: this.roundPrice(item.count * item.price)
 			}))
 		},
 		count() {
-			return this.orderItems.length
+			return this.cartItems.reduce((acc, item) => item.count + acc, 0)
 		},
 		netTotal() {
-			return this.orderItems.reduce(
+			return this.cartItems.reduce(
 				(acc, item) => Number(item.countPrice) + acc,
 				0
 			)
@@ -175,10 +167,7 @@ export const useOrderStore = defineStore({
 		},
 		runValidation() {
 			if (!this.validate) {
-				if (
-					!this.deliveryInfo.valid ||
-					!this.paymentInfo.valid
-				) {
+				if (!this.deliveryInfo.valid || !this.paymentInfo.valid) {
 					this.validate = true
 				}
 			}
@@ -187,11 +176,11 @@ export const useOrderStore = defineStore({
 			// this.runValidation()
 			if (this.valid) {
 				console.log('Valid')
-        this.status = 'paid'
+				this.status = 'paid'
 				// axios
 				// 	.post(
 				// 		'https://1gurwkpu.directus.app/items/order',
-				// 		this.orderItems.map((item) => {
+				// 		this.cartItems.map((item) => {
 				// 			const { selectedSize, id, date_created, ...orderItem } = item
 				// 			return orderItem
 				// 		})
