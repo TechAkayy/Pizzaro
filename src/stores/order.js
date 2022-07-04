@@ -85,10 +85,12 @@ export const useOrderStore = defineStore({
 	}),
 	getters: {
 		cartItems() {
-			return this.items.map((item) => ({
+			const itemsWithCountPrice = this.items.map((item) => ({
 				...item,
 				countPrice: this.roundPrice(item.count * item.price)
 			}))
+
+			return itemsWithCountPrice.sort(this.sortArrayOfObjects('name'))
 		},
 		count() {
 			return this.cartItems.reduce((acc, item) => item.count + acc, 0)
@@ -212,6 +214,10 @@ export const useOrderStore = defineStore({
 		},
 		applyDiscountCode(code) {
 			this.discountCode = code
+		},
+		sortArrayOfObjects(key) {
+			// https://stackoverflow.com/a/67992215
+			return (a, b) => (a[key].toLowerCase() > b[key].toLowerCase() ? 1 : -1)
 		}
 	}
 })
