@@ -27,15 +27,15 @@ const submitOrder = () => {
     <v-form ref="form" lazy-validation v-model="valid">
         <v-container>
             <v-row>
-                <v-col cols="12" md="false" lg="12" xl="8">
+                <v-col cols="12" md="false" lg="12" xl="5">
                     <EditOrder/>
                 </v-col>
-                <v-col cols="12" md="false" lg="false" xl="4" v-if="count !==0">
+                <v-col cols="12" md="false" lg="false" xl="7" v-if="count !==0">
                     <v-row>
-                        <v-col cols="12" md="6" lg="false" xl="12">
+                        <v-col cols="12" md="6" lg="false" xl="6">
                             <EditDeliveryInfo/>
                         </v-col>
-                        <v-col cols="12" md="6" lg="false" xl="12">
+                        <v-col cols="12" md="6" lg="false" xl="6">
                             <EditPaymentMethod @submit-order="submitOrder"/>
                         </v-col>
                     </v-row>
