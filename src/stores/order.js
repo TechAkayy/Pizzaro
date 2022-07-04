@@ -129,13 +129,12 @@ export const useOrderStore = defineStore({
 	},
 	actions: {
 		addToCart(newItem, selectedSize) {
-			const existingItemIndex = this.items.findIndex(
+			const existingItem = this.items.find(
 				(item) =>
-					item.name === newItem.name &&
-					item.selectedSize.name === selectedSize.name
+					item.id === newItem.id && item.selectedSize.id === selectedSize.id
 			)
-			if (existingItemIndex > -1) {
-				this.incrementCartItemCount(existingItemIndex)
+			if (existingItem) {
+				this.incrementCartItemCount(existingItem.id)
 			} else {
 				const item = { ...newItem }
 				item.selectedSize = selectedSize
@@ -153,17 +152,22 @@ export const useOrderStore = defineStore({
 				})
 			}
 		},
+		clearCart() {
+			this.items = []
+		},
 		removeFromCart(id) {
 			const index = this.items.findIndex((item) => item.id === id)
 			if (index > -1) this.items.splice(index, 1)
 		},
 		incrementCartItemCount(id) {
 			const item = this.items.find((item) => item.id === id)
-			item.count++
+			if (item) {
+				item.count++
+			}
 		},
 		decrementCartItemCount(id) {
 			const item = this.items.find((item) => item.id === id)
-			if (item.count !== 1) {
+			if (item && item.count !== 1) {
 				item.count--
 			}
 		},

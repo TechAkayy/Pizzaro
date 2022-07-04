@@ -4,13 +4,13 @@ import { storeToRefs } from 'pinia'
 import { useOrderStore } from '@/stores/order'
 
 const orderStore = useOrderStore()
-const { cartItems, orderAmounts, discountCode } =
+const { cartItems, orderAmounts, discountCode, count } =
   storeToRefs(orderStore)
 const {
   removeFromCart,
   incrementCartItemCount,
   decrementCartItemCount,
-  placeOrder, applyDiscountCode
+  clearCart, applyDiscountCode
 } = orderStore
 let code = ref('')
 
@@ -33,7 +33,8 @@ const applyCode = () => {
                 <tbody>
                     <tr v-for="(item, index) in cartItems" :key="index">
                         <td>
-                            <v-btn icon="fluent-delete-20-regular" density="compact" variant="flat" @click="removeFromCart(item.id)"></v-btn>
+                            <v-btn icon="fluent-delete-20-regular" density="compact" variant="flat" @click="removeFromCart(item.id)">
+</v-btn>
                         </td>
                         <td>
                             <v-img width="35" :src="item.img"></v-img>
@@ -53,7 +54,7 @@ const applyCode = () => {
                         <td>
                             <v-btn icon="icon-park-outline-add-one" density="compact" variant="flat" @click="incrementCartItemCount(item.id)"></v-btn>
                         </td>
-                        <td>
+                        <td class="text-right">
                             <div class="font-weight-bold">${{ item.countPrice }}</div>
                         </td>
                     </tr>
@@ -68,7 +69,7 @@ const applyCode = () => {
                                 Delivery Fee (free for orders over $50)
 </div>
                         </td>
-                        <td>
+                        <td class="text-right">
                             <div class="font-weight-bold">${{ orderAmounts.deliveryFee }}</div>
                         </td>
                     </tr>
@@ -76,7 +77,7 @@ const applyCode = () => {
                         <td colspan="6">
                             <div class="text-caption">Discount (10% off)</div>
                         </td>
-                        <td>
+                        <td class="text-right">
                             <div class="font-weight-bold">${{ orderAmounts.discount }}</div>
                         </td>
                     </tr>
@@ -84,7 +85,7 @@ const applyCode = () => {
                         <td colspan="6">
                             <div class="text-caption">Subtotal</div>
                         </td>
-                        <td>
+                        <td class="text-right">
                             <div class="font-weight-bold">${{ orderAmounts.subTotal }}</div>
                         </td>
                     </tr>
@@ -92,7 +93,7 @@ const applyCode = () => {
                         <td colspan="6">
                             <div class="text-caption">GST (10%)</div>
                         </td>
-                        <td>
+                        <td class="text-right">
                             <div class="font-weight-bold">${{ orderAmounts.gst }}</div>
                         </td>
                     </tr>
@@ -105,8 +106,15 @@ const applyCode = () => {
                         <td colspan="6">
                             <div class="font-weight-bold text-body-1">Total</div>
                         </td>
-                        <td>
+                        <td class="text-right">
                             <div class="font-weight-bold">${{ orderAmounts.total }}</div>
+                        </td>
+                    </tr>
+                    <tr v-if="count !== 0">
+                        <td colspan="7" class="">
+                            <div class="align-center d-flex justify-end text-caption">
+                                <v-btn prepend-icon="iconoir-delete-circled-outline" variant="flat" class="mb-n2 mt-2 pr-0 text-caption" @click="clearCart">Clear shopping cart</v-btn>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
