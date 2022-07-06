@@ -155,13 +155,13 @@ export const useOrderStore = defineStore({
 					count += size.count
 					return {
 						...size,
-						countPrice
+						countPrice: this.roundPrice(countPrice)
 					}
 				})
 				return {
 					...item,
 					sizes,
-					price,
+					price: this.roundPrice(price),
 					count
 				}
 			})
