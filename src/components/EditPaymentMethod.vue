@@ -37,13 +37,12 @@ const cardCvvRules = [
 
 </script>
 <template>
-    <v-card class="pb-2 pl-2 pr-2 pt-4" style="height: 100%;">
+    <v-card class="pb-2 pl-2 pr-2 pt-4">
         <v-card-title>Payment Method </v-card-title>
         <v-radio-group class="" v-model="paymentInfo.method" true-icon="ic-outline-radio-button-checked" false-icon="ic-outline-radio-button-unchecked">
             <v-container>
                 <v-radio class="" value="card">
-                    <template v-slot:label>
-                        <span class=" text-caption">Credit or Debit
+                    <template v-slot:label><span class=" text-caption">Credit or Debit
               Card</span>
                     </template>
                 </v-radio>
@@ -63,8 +62,7 @@ const cardCvvRules = [
             </v-container>
             <v-container>
                 <v-radio class="" value="cash_on_delivery">
-                    <template v-slot:label>
-                        <span class=" text-caption">Cash on
+                    <template v-slot:label><span class=" text-caption">Cash on
               Delivery</span>
                     </template>
                 </v-radio>

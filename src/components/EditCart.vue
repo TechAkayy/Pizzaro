@@ -45,7 +45,7 @@ const toggleShowHide = () => show.value = !show.value
                 </v-col>
             </v-row>
             <v-row>
-                <v-col>
+                <v-col cols="12">
                     <v-card elevation="0" border class="pa-2" style="height: 100%;">
                         <v-container>
                             <v-row justify="center" v-for="(item, index) in cartItems" :key="index" class="flex-nowrap">
