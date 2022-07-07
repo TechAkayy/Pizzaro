@@ -89,7 +89,7 @@ const drawer = ref(false)
           <v-container style="grid-area: free-fries"
             class="align-center bg-white d-flex justify-center justify-sm-space-around">
             <div class="fries">
-              <v-img src="/src/assets/images/free-fries.png" class></v-img>
+              <v-img src="/assets/images/free-fries.png" class></v-img>
             </div>
             <div class="align-center d-flex d-sm-block ml-2">
               <p class="font-weight-bold text-h6">Free Fries Friday</p>
