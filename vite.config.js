@@ -45,15 +45,14 @@ export default defineConfig({
 				// all: { prop: { customType: 'icon' } },
 			}
 		}),
-		vue(),
-		// {
-		//   template: {
-		//     transformAssetUrls: {
-		//       'v-img': ['src', ':src'],
-		//       'v-parallax': ['src']
-		//     }
-		//   }
-		// }
+		vue({
+			template: {
+				transformAssetUrls: {
+					'v-img': ['src', ':src'],
+					'v-parallax': ['src']
+				}
+			}
+		}),
 		Unocss({
 			presets: [
 				presetIcons({
