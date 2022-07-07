@@ -16,6 +16,7 @@ export default defineConfig({
 	plugins: [
 		liveDesigner({
 			plugins: [pinegrowVuetifyPlugin],
+			// routerHistoryMode: 'hash', // 'hash', 'html5' (default)
 			iconsets: ['all'],
 			customTypes: {
 				// To apply type overrides to a specific component (overrides above default fn),

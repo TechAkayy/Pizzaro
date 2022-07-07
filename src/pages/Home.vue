@@ -118,19 +118,11 @@ const drawer = ref(false)
                             </v-col>
                         </v-row>
                     </v-col>
+                    <v-col cols="4" class="d-lg-block d-none">
+                        <EditCart/>
+                    </v-col>
                 </v-row>
             </div>
-        </v-col>
-        <v-col class="d-none">
-            <v-card class="pa-2">
-                <v-btn @click="drawer = !drawer">My Button</v-btn>
-                <v-navigation-drawer expand-on-hover rail>
-                    <v-list>
-                        <v-list-item prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg" title="Sandra Adams" subtitle="sandra_a88@gmailcom"></v-list-item>
-                    </v-list>
-                    <EditCart/>
-                </v-navigation-drawer>
-            </v-card>
         </v-col>
     </v-row>
 </template>
