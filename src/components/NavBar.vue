@@ -32,7 +32,7 @@ const currentRoute = computed(() => route.name)
         </v-tab>
         <v-tab to="/track" value="track" class="d-sm-none text-h5" icon="material-symbols-search-rounded"></v-tab>
         <v-tab to="/" value="home" selected-class="v-tab--selected">
-          <v-img src="src/assets/logo.svg" width="75"></v-img>
+          <v-img src="/src/assets/logo.svg" width="75"></v-img>
         </v-tab>
         <v-tab class="d-none d-sm-flex hidden-only text-subtitle-2" to="/order" value="order">
           <v-icon icon="ic-twotone-delivery-dining" size="x-large"></v-icon>
