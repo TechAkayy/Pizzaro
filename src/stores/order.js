@@ -10,7 +10,7 @@ export const useOrderStore = defineStore({
 				id: '1cf994aa-4285-4f38-a9e5-8dc7b07b832c',
 				date_created: '2022-07-01T13:41:02.318Z',
 				name: "Kevin's Favorite",
-				img: './src/assets/images/pizzas/04.png',
+				img: '/assets/images/pizzas/04.png',
 				ingredients:
 					'Tripple Sausage, Italian, Hungarian Sausage, Mushroom, Mozarella & Tomato base',
 				size_on_special: 'Regular',
@@ -48,7 +48,7 @@ export const useOrderStore = defineStore({
 				id: '96d007e3-0b31-4991-a36b-45ecc29140fb',
 				date_created: '2022-07-01T13:41:02.385Z',
 				name: 'Vegetarian',
-				img: './src/assets/images/pizzas/08.png',
+				img: '/assets/images/pizzas/08.png',
 				ingredients:
 					'Healthy but yummy! Bell pepers, Onion, Mushrooms, Tomatoes, Lettuce, Pinapple, Cucumber, Olives, Mozerella',
 				size_on_special: 'Family',
@@ -86,7 +86,7 @@ export const useOrderStore = defineStore({
 				id: 'e28fd16c-84f6-458e-b2d1-929eb2415dc5',
 				date_created: '2022-07-01T13:41:02.290Z',
 				name: 'Casa Alfredo',
-				img: './src/assets/images/pizzas/02.png',
+				img: '/assets/images/pizzas/02.png',
 				ingredients:
 					'White sauce pizza, Chicken toppings, Mushrooms, Roaster Garlic and Onions',
 				size_on_special: 'Family',
