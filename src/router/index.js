@@ -14,8 +14,24 @@ const router = createRouter({
 			component: Home
 		},
 		{
-			path: '/order',
-			name: 'order',
+			path: '/sides',
+			name: 'sides',
+			// route level code-splitting
+			// this generates a separate chunk (About.[hash].js) for this route
+			// which is lazy-loaded when the route is visited.
+			component: () => import('../pages/Order.vue')
+		},
+		{
+			path: '/desserts',
+			name: 'desserts',
+			// route level code-splitting
+			// this generates a separate chunk (About.[hash].js) for this route
+			// which is lazy-loaded when the route is visited.
+			component: () => import('../pages/Order.vue')
+		},
+		{
+			path: '/drinks',
+			name: 'drinks',
 			// route level code-splitting
 			// this generates a separate chunk (About.[hash].js) for this route
 			// which is lazy-loaded when the route is visited.
@@ -28,6 +44,14 @@ const router = createRouter({
 			// this generates a separate chunk (About.[hash].js) for this route
 			// which is lazy-loaded when the route is visited.
 			component: () => import('../pages/Track.vue')
+		},
+		{
+			path: '/order',
+			name: 'order',
+			// route level code-splitting
+			// this generates a separate chunk (About.[hash].js) for this route
+			// which is lazy-loaded when the route is visited.
+			component: () => import('../pages/Order.vue')
 		}
 	]
 })
