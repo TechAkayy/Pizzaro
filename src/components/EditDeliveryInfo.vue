@@ -4,7 +4,7 @@ import { storeToRefs } from 'pinia'
 import { useOrderStore } from '@/stores/order'
 
 const orderStore = useOrderStore()
-const { deliveryInfo } =
+const { customerInfo } =
   storeToRefs(orderStore)
 
 const addressRules = [
@@ -30,17 +30,17 @@ const mobileNumberRules = [
         <v-col cols="12" class="pb-0"><span class=" text-caption">Delivery Address</span><span
             class="ml-1 text-caption text-error">*</span>
           <v-text-field class="" density="compact" variant="outlined" prepend-inner-icon="fluent-my-location-20-filled"
-            :rules="addressRules" v-model="deliveryInfo.address" clearable></v-text-field>
+            :rules="addressRules" v-model="customerInfo.address" clearable></v-text-field>
         </v-col>
         <v-col cols="12" class="pb-0 pt-0"><span class=" text-caption">Contact Person for Delivery</span><span
             class="ml-1 text-caption text-error">*</span>
           <v-text-field class="" density="compact" variant="outlined" :rules="contactRules"
-            v-model="deliveryInfo.contact" clearable></v-text-field>
+            v-model="customerInfo.contact" clearable></v-text-field>
         </v-col>
         <v-col cols="12" class="pb-0 pt-0"><span class=" text-caption">Mobile Number</span><span
             class="ml-1 text-caption text-error">*</span>
           <v-text-field class="" density="compact" variant="outlined" :rules="mobileNumberRules"
-            v-model="deliveryInfo.mobileNumber" clearable placeholder="+61"></v-text-field>
+            v-model="customerInfo.mobileNumber" clearable placeholder="+61"></v-text-field>
         </v-col>
       </v-row>
     </v-container>

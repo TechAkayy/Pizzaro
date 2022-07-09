@@ -130,7 +130,8 @@ export const useOrderStore = defineStore({
 				endingWith: ''
 			}
 		},
-		deliveryInfo: {
+		deliveryOrPickup: 'pickup', //['delivery', 'pickup']
+		customerInfo: {
 			address: '',
 			contact: '',
 			mobileNumber: '',

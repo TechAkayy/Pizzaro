@@ -4,7 +4,9 @@ import axios from 'axios'
 export const usePizzaStore = defineStore({
 	id: 'pizzas',
 	state: () => ({
-		pizzas: [
+		title: 'Pizza Menu',
+		description: 'Choose from our plethora of exquisite pizza creations',
+		items: [
 			// {
 			// 	name: 'Hawaiian Pizza',
 			// 	img: './src/assets/images/pizzas/01.png',
@@ -33,7 +35,7 @@ export const usePizzaStore = defineStore({
 
 	getters: {
 		specials() {
-			return this.pizzas.filter((pizza) => pizza.size_on_special)
+			return this.items.filter((pizza) => pizza.size_on_special)
 		}
 	},
 
@@ -44,7 +46,7 @@ export const usePizzaStore = defineStore({
 			// 	axios
 			// 		.get('http://localhost:4000/pizzas')
 			// 		.then((response) => {
-			// 			this.pizzas = response.data
+			// 			this.items = response.data
 			// 			// this.updateSpecialPrices()
 			// 		})
 			// 		.catch((error) => {
@@ -59,7 +61,7 @@ export const usePizzaStore = defineStore({
 					axios
 						.get('https://1gurwkpu.directus.app/items/pizzas')
 						.then((response) => {
-							this.pizzas = response.data.data
+							this.items = response.data.data
 							// this.updateSpecialPrices()
 						})
 						.catch((error) => {
@@ -71,7 +73,7 @@ export const usePizzaStore = defineStore({
 				})
 		}
 		// updateSpecialPrices() {
-		// 	this.pizzas
+		// 	this.items
 		// 		.filter((pizza) => pizza.size_on_special)
 		// 		.forEach((pizza) => {
 		// 			const size = this.sizes.find(
