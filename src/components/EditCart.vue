@@ -32,7 +32,8 @@ const toggleShowHide = () => show.value = !show.value
             <v-row>
                 <v-col>
                     <v-card-title>
-                        <v-icon icon="noto-pizza" size="x-small"></v-icon><span class="ml-1 text-no-wrap">My Cart</span>
+                        <v-icon icon="noto-pizza" size="x-small"></v-icon>
+                        <span class="ml-1 text-no-wrap">My Cart</span>
                         <v-btn icon="clarity-eye-show-solid" color="grey-darken-1" size="x-small" variant="text" class="" v-if="show && !saved" @click="toggleShowHide"></v-btn>
                         <v-btn icon="clarity-eye-hide-solid" color="grey-darken-1" size="x-small" variant="text" class="" v-if="!show && !saved" @click="toggleShowHide"></v-btn>
                         <v-spacer></v-spacer>
@@ -58,8 +59,7 @@ const toggleShowHide = () => show.value = !show.value
                                         <tbody>
                                             <tr>
                                                 <td colspan="3" class="">
-                                                    <div class="align-center d-flex " style="height: 100%;">
-                                                        <span class="ml-sm-0  text-no-wrap text-subtitle-2">{{ item.name }}</span>
+                                                    <div class="align-center d-flex " style="height: 100%;"><span class="ml-sm-0  text-no-wrap text-subtitle-2">{{ item.name }}</span>
                                                         <v-btn icon="fluent-delete-20-regular" density="compact" variant="flat" @click="removeFromCart(item.id)" size="small" class="ml-auto" v-if="!saved">
 </v-btn>
                                                     </div>
@@ -80,7 +80,8 @@ const toggleShowHide = () => show.value = !show.value
                                                                         <v-icon icon="ic-baseline-minus" size="small" class=""></v-icon>
                                                                     </div>
                                                                 </v-btn>
-                                                                <div class="ml-2 pr-2 text-center" style="min-width: 25px;"><span>{{ size.count }}</span>
+                                                                <div class="ml-2 pr-2 text-center" style="min-width: 25px;">
+                                                                    <span>{{ size.count }}</span>
                                                                 </div>
                                                                 <v-btn density="compact" @click="incrementCartItemCount(item, size)" variant="outlined" color="error" icon size="small" v-if="!saved">
                                                                     <div class="d-flex">
@@ -102,10 +103,10 @@ const toggleShowHide = () => show.value = !show.value
                             <v-row>
                                 <v-col class="pl-0 pt-6">
                                     <div class="d-flex justify-space-between">
-                                        <v-btn prepend-icon="iconoir-delete-circled-outline" size="small" color="warning" class="text-capitalize" @click="clearCart">Clear cart</v-btn>
-                                        <v-btn prepend-icon="material-symbols-edit-rounded" class="text-capitalize" size="small" color="info" v-if="saved" @click="toggleSaved">Edit cart</v-btn>
-                                        <v-btn prepend-icon="material-symbols-save-outline" class="text-capitalize" size="small" color="primary" v-if="!saved" @click="toggleSaved">Save cart</v-btn>
-                                        <v-btn prepend-icon="icon-park-outline-baby-taste" to="/" class=" text-capitalize" size="small" color="success">Add pizzas</v-btn>
+                                        <v-btn prepend-icon="iconoir-delete-circled-outline" color="warning" class=" text-capitalize" @click="clearCart" ripple tag="button" variant="elevated" size="small">Clear</v-btn>
+                                        <v-btn prepend-icon="material-symbols-edit-rounded" class="text-capitalize" size="small" color="info" v-if="saved" @click="toggleSaved">Edit</v-btn>
+                                        <v-btn prepend-icon="material-symbols-save-outline" class="text-capitalize" size="small" color="primary" v-if="!saved" @click="toggleSaved" ripple tag="button" variant="elevated">Save</v-btn>
+                                        <v-btn prepend-icon="icon-park-outline-baby-taste" to="/" class=" text-capitalize" size="small" color="success" ripple tag="button" variant="elevated">Add</v-btn>
                                     </div>
                                 </v-col>
                             </v-row>

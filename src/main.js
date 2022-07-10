@@ -1,7 +1,10 @@
-// import devtools from '@vue/devtools'
-// if (process.env.NODE_ENV === 'development') {
-// 	devtools.connect(/* host, port */)
-// }
+import devtools from '@vue/devtools'
+
+if (process.env.NODE_ENV === 'development') {
+	// devtools.connect(/* host, port */)
+	// Expose connect on window's object so that connection with Vue Devtools can be conditionally triggered from within Pinegrow
+	window.devtools = devtools
+}
 
 import 'uno.css'
 

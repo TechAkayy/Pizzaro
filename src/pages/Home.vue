@@ -31,7 +31,8 @@ const { deliveryOrPickup } = storeToRefs(orderStore)
                 </v-col>
                 <v-col md="6" sm="12">
                     <div class="align-center d-flex justify-center" style="height: 100%;">
-                        <v-btn size="x-large" rounded="lg" color="error" :active="deliveryOrPickup==='delivery'" :prepend-icon="deliveryOrPickup==='delivery' ? 'dashicons-yes': null" @click="deliveryOrPickup='delivery'" width="180" class="font-weight-bold text-button">Delivery</v-btn><span class="font-italic ml-5 mr-5 text-h6" style="font-family: 'Playfair Display', serif !important;">or</span>
+                        <v-btn size="x-large" rounded="lg" color="error" :active="deliveryOrPickup==='delivery'" :prepend-icon="deliveryOrPickup==='delivery' ? 'dashicons-yes': null" @click="deliveryOrPickup='delivery'" width="180" class="font-weight-bold text-button">Delivery</v-btn>
+                        <span class="font-italic ml-5 mr-5 text-h6" style="font-family: 'Playfair Display', serif !important;">or</span>
                         <v-btn size="x-large" rounded="lg" color="error" :active="deliveryOrPickup==='pickup'" :prepend-icon="deliveryOrPickup==='pickup' ? 'dashicons-yes': null" @click="deliveryOrPickup='pickup'" width="180" class="font-weight-bold text-button">Pickup</v-btn>
                     </div>
                 </v-col>
