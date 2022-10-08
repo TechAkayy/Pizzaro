@@ -23,16 +23,16 @@
 	"devDependencies": {
 		"@iconify/json": "^2.1.65",
 		"@mdi/js": "^6.7.96",
-		"@pinegrow/vite-plugin": "^2.0.0-alpha.1",
+		"@pinegrow/vite-plugin": "latest",
 		"@pinegrow/vuetify-plugin": "latest",
 		"@unocss/preset-icons": "^0.39.3",
-		"@vitejs/plugin-vue": "^2.3.3",
+		"@vitejs/plugin-vue": "^3.1.0",
 		"@vue/devtools": "^6.1.4",
 		"json-server": "^0.17.0",
 		"sass": "^1.53.0",
 		"unocss": "^0.39.3",
 		"unplugin-vue-components": "^0.19.6",
-		"vite": "^2.9.12",
+		"vite": "^3.1.0",
 		"vite-plugin-vuetify": "^1.0.0-alpha.0",
 		"vue-cli-plugin-vuetify": "~2.5.1"
 	}

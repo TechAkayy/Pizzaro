@@ -14,7 +14,7 @@ import router from './router'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 import { createPinia } from 'pinia'
-import { VueSelect } from 'vue-select'
+import VueSelect from 'vue-select'
 import 'vue-select/dist/vue-select.css'
 
 loadFonts()
